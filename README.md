@@ -141,4 +141,4 @@ git push -u origin <your_branch_name>
 </a>
 
 
-<h1 align="center">Made with ❤️ By Developers</h1>
+<h1 align="center">Made with ❤️ By Team GDSC-GTBIT</h1>
