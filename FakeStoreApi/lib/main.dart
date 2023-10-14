@@ -1,3 +1,4 @@
+import 'package:fake_store_api/details_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
@@ -54,57 +55,75 @@ class _NewAppState extends State<NewApp> {
         body: ListView.builder(
           itemCount: products.length,
           itemBuilder: (BuildContext context, int index) {
-            return Card(
-              child: ListTile(
-                leading: Image.network(products[index]['image']),
-                title: Text(products[index]['title']),
-                subtitle: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      'Price: ${products[index]['price']}',
-                      style: const TextStyle(fontWeight: FontWeight.bold),
+            return GestureDetector(
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => DetailsScreen(
+                      imgUrl: products[index]['image'],
+                      title: products[index]['title'],
+                      price: products[index]['price'],
+                      desc: products[index]['description'],
                     ),
-                    Text(
-                      'Category: ${products[index]['category']}',
-                      style: const TextStyle(fontStyle: FontStyle.italic),
-                    ),
-                    ReadMoreText(
-                      'Description: ${products[index]['description']}',
-                      trimLines: 2,
-                      colorClickableText: Colors.pink,
-                      trimMode: TrimMode.Line,
-                      trimCollapsedText: ' Show more ',
-                      trimExpandedText: ' Show less ',
-                      lessStyle: TextStyle(
-                          color: Colors.blueGrey[500], fontWeight: FontWeight.bold, decoration: TextDecoration.underline),
-                      moreStyle: TextStyle(
-                          color: Colors.blue[500], fontWeight: FontWeight.bold),
-
-                      style: counterTextStyle,
-                    ),
-                    Row(
-                      children: [
-                        Container(
-                          margin: EdgeInsets.only(top: 4, bottom: 4),
-                          width: 25, // Set a fixed width for the square
-                          height: 25, // Set a fixed height for the square
-                          color: Colors
-                              .blue, // Set a background color for the square
-                          child: Center(
-                            child: Text(
-                              '${products[index]['rating']['rate']}',
-                              style: TextStyle(color: Colors.white),
+                  ),
+                );
+              },
+              child: Card(
+                child: ListTile(
+                  leading: Image.network(products[index]['image']),
+                  title: Text(products[index]['title']),
+                  subtitle: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        'Price: ${products[index]['price']}',
+                        style: const TextStyle(fontWeight: FontWeight.bold),
+                      ),
+                      Text(
+                        'Category: ${products[index]['category']}',
+                        style: const TextStyle(fontStyle: FontStyle.italic),
+                      ),
+                      ReadMoreText(
+                        'Description: ${products[index]['description']}',
+                        trimLines: 2,
+                        colorClickableText: Colors.pink,
+                        trimMode: TrimMode.Line,
+                        trimCollapsedText: ' Show more ',
+                        trimExpandedText: ' Show less ',
+                        lessStyle: TextStyle(
+                            color: Colors.blueGrey[500],
+                            fontWeight: FontWeight.bold,
+                            decoration: TextDecoration.underline),
+                        moreStyle: TextStyle(
+                            color: Colors.blue[500],
+                            fontWeight: FontWeight.bold),
+                        style: counterTextStyle,
+                      ),
+                      Row(
+                        children: [
+                          Container(
+                            margin: EdgeInsets.only(top: 4, bottom: 4),
+                            width: 25, // Set a fixed width for the square
+                            height: 25, // Set a fixed height for the square
+                            color: Colors
+                                .blue, // Set a background color for the square
+                            child: Center(
+                              child: Text(
+                                '${products[index]['rating']['rate']}',
+                                style: TextStyle(color: Colors.white),
+                              ),
                             ),
                           ),
-                        ),
-                        SizedBox(
-                            width:
-                                10), // Add some space between the square and text
-                        Text('(${products[index]['rating']['count']} ratings)'),
-                      ],
-                    ),
-                  ],
+                          SizedBox(
+                              width:
+                                  10), // Add some space between the square and text
+                          Text(
+                              '(${products[index]['rating']['count']} ratings)'),
+                        ],
+                      ),
+                    ],
+                  ),
                 ),
               ),
             );
