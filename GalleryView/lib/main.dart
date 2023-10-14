@@ -21,7 +21,7 @@ class MyApp extends StatelessWidget {
             scrollDirection: Axis.horizontal,
             controller: ctrl,
             children: const [
-              MoonCont(imageUrl:'assets/moon-phase-02.png'),
+              MoonCont(imageUrl: 'assets/moon-phase-02.png'),
               MoonCont(imageUrl: 'assets/moon-phase-03.png'),
               MoonCont(imageUrl: 'assets/moon-phase-04.png'),
               MoonCont(imageUrl: 'assets/moon-phase-05.png'),
@@ -59,14 +59,17 @@ class MoonCont extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: 200,
-      width: 200,
-      margin:const  EdgeInsets.symmetric(horizontal: 40, vertical: 100),
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(10),
-        image: DecorationImage(
-          image: AssetImage(imageUrl),
+    return InteractiveViewer(
+      maxScale: 3,
+      child: Container(
+        height: 200,
+        width: 200,
+        margin: const EdgeInsets.symmetric(horizontal: 40, vertical: 100),
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(10),
+          image: DecorationImage(
+            image: AssetImage(imageUrl),
+          ),
         ),
       ),
     );
