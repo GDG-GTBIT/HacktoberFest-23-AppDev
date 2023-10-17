@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
-  MyApp({super.key});
   final PageController ctrl = PageController();
 
   @override
@@ -14,7 +13,7 @@ class MyApp extends StatelessWidget {
           decoration: const BoxDecoration(
             image: DecorationImage(
               image: AssetImage('assets/orion.jpg'),
-              fit: BoxFit.fitHeight,
+              fit: BoxFit.cover,  // Change to BoxFit.cover
             ),
           ),
           child: PageView(
@@ -53,17 +52,18 @@ class MyApp extends StatelessWidget {
 class MoonCont extends StatelessWidget {
   final String imageUrl;
   const MoonCont({
-    super.key,
+    Key? key,  // Handle the key properly
     required this.imageUrl,
-  });
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return InteractiveViewer(
       maxScale: 3,
       child: Container(
-        height: 200,
-        width: 200,
+        // Use MediaQuery to adapt size to screen width
+        height: MediaQuery.of(context).size.width * 0.5,
+        width: MediaQuery.of(context).size.width * 0.5,
         margin: const EdgeInsets.symmetric(horizontal: 40, vertical: 100),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(10),
