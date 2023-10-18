@@ -1,0 +1,82 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.anujsharma.shuffler.fragments.PlaylistsListFragment">
+
+    <RelativeLayout
+        android:id="@+id/playlistsListHeader"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/toolbar_bar_height"
+        android:background="@color/colorPrimary">
+
+        <ImageView
+            android:id="@+id/ivPlaylistsBackButton"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_vertical"
+            android:paddingLeft="@dimen/_13sdp"
+            android:background="?android:attr/selectableItemBackground"
+            app:srcCompat="@drawable/ic_back" />
+
+        <com.example.anujsharma.shuffler.fonts.TypefaceTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:text="@string/playlists"
+            android:textColor="@color/white"
+            android:textSize="@dimen/top_header_text_size"
+            app:typeface="@string/Font_Montserrat_SemiBold" />
+
+
+        <ImageView
+            android:id="@+id/ivCreatePlaylist"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:padding="@dimen/_12sdp"
+            android:background="?android:attr/selectableItemBackground"
+            app:srcCompat="@drawable/ic_add_playlist" />
+    </RelativeLayout>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/rvPlaylistsList"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/playlistsListHeader"
+        android:background="@color/colorDark" />
+
+    <RelativeLayout
+        android:id="@+id/rlNoPlaylistMessage"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/playlistsListHeader">
+
+        <ImageView
+            android:layout_width="@dimen/shuffle_button_margin"
+            android:layout_height="@dimen/shuffle_button_margin"
+            android:layout_above="@id/tvNoPlaylistMessage"
+            android:layout_centerHorizontal="true"
+            android:tint="@color/color_unselected"
+            app:srcCompat="@drawable/ic_add_playlist" />
+
+        <com.example.anujsharma.shuffler.fonts.TypefaceTextView
+            android:id="@+id/tvNoPlaylistMessage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="@dimen/_84sdp"
+            android:padding="@dimen/_36sdp"
+            android:text="@string/no_playlist_message"
+            android:textAlignment="center"
+            android:textColor="@color/color_unselected"
+            android:textSize="@dimen/each_song_title_text_size"
+            app:typeface="@string/Font_Montserrat_Regular" />
+
+
+    </RelativeLayout>
+
+</RelativeLayout>
