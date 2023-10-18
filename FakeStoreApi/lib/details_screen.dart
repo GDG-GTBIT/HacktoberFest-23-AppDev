@@ -24,15 +24,18 @@ class DetailsScreen extends StatelessWidget {
             const SizedBox(
               height: 30,
             ),
-            Center(
-              child: Container(
-                height: 130,
-                width: 60,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(12),
-                  image: DecorationImage(
-                    image: NetworkImage(imgUrl),
-                    fit: BoxFit.cover,
+            InteractiveViewer(
+              maxScale: 3,
+              child: Center(
+                child: Container(
+                  height: 170,
+                  width: 100,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(12),
+                    image: DecorationImage(
+                      image: NetworkImage(imgUrl),
+                      fit: BoxFit.cover,
+                    ),
                   ),
                 ),
               ),
