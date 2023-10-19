@@ -1,0 +1,106 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.example.anujsharma.shuffler.fragments.UserPageFragment">
+
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/user_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/toolbar_bar_height" />
+
+    <android.support.design.widget.CoordinatorLayout
+        android:id="@+id/userCoordinatorLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <android.support.design.widget.AppBarLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+            app:elevation="0dp">
+
+            <android.support.design.widget.CollapsingToolbarLayout
+                android:id="@+id/userCollapsingToolbar"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@android:color/transparent"
+                app:layout_scrollFlags="scroll|exitUntilCollapsed|enterAlwaysCollapsed">
+
+                <LinearLayout
+                    android:id="@+id/llUserPage"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/transparent_black"
+                    android:orientation="vertical"
+                    app:layout_collapseMode="parallax">
+
+                    <ImageView
+                        android:id="@+id/userImage"
+                        android:layout_width="@dimen/user_image_dimen"
+                        android:layout_height="@dimen/user_image_dimen"
+                        android:layout_centerHorizontal="true"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="@dimen/_12sdp"
+                        android:scaleType="centerCrop"
+                        app:srcCompat="@drawable/ic_musical_note" />
+
+                    <com.example.anujsharma.shuffler.fonts.TypefaceTextView
+                        android:id="@+id/userName"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/userImage"
+                        android:gravity="center"
+                        android:paddingLeft="@dimen/_6sdp"
+                        android:paddingRight="@dimen/_6sdp"
+                        android:paddingTop="@dimen/_6sdp"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/_18ssp"
+                        app:typeface="@string/Font_Montserrat_SemiBold" />
+
+                    <com.example.anujsharma.shuffler.fonts.TypefaceTextView
+                        android:id="@+id/userFollowers"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/userName"
+                        android:gravity="center"
+                        android:layout_marginTop="@dimen/_6sdp"
+                        android:padding="@dimen/_6sdp"
+                        android:textSize="@dimen/feed_bottom_text_size"
+                        app:typeface="@string/Font_Montserrat_Regular" />
+
+                    <com.example.anujsharma.shuffler.fonts.TypefaceTextView
+                        android:id="@+id/ivShuffleButton"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/_6sdp"
+                        android:layout_marginEnd="@dimen/shuffle_button_margin"
+                        android:layout_marginStart="@dimen/shuffle_button_margin"
+                        android:layout_marginTop="@dimen/_6sdp"
+                        android:background="@drawable/shape_round_button"
+                        android:gravity="center"
+                        android:padding="@dimen/_12sdp"
+                        android:text="@string/shuffle_play"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/each_song_title_text_size"
+                        android:textStyle="bold"
+                        app:typeface="@string/Font_Montserrat_Regular" />
+
+                </LinearLayout>
+
+            </android.support.design.widget.CollapsingToolbarLayout>
+
+        </android.support.design.widget.AppBarLayout>
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/userRecyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior" />
+
+    </android.support.design.widget.CoordinatorLayout>
+
+</LinearLayout>
