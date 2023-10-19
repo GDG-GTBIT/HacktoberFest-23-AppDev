@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class DetailsScreen extends StatelessWidget {
   String imgUrl;
   String title;
-  double price;
+  String price;
   String desc;
   DetailsScreen(
       {super.key,
@@ -28,8 +29,8 @@ class DetailsScreen extends StatelessWidget {
               maxScale: 3,
               child: Center(
                 child: Container(
-                  height: 170,
-                  width: 100,
+                  height: 200,
+                  width: double.infinity,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(12),
                     image: DecorationImage(
@@ -43,15 +44,39 @@ class DetailsScreen extends StatelessWidget {
             const SizedBox(
               height: 20,
             ),
-            Text(title),
+            Text(
+              title,
+              style: GoogleFonts.kalam(fontSize: 20),
+            ),
             const SizedBox(
               height: 20,
             ),
-            Text(desc),
+            Text(
+              desc,
+              style: GoogleFonts.inter(fontSize: 15),
+            ),
             const SizedBox(
               height: 20,
             ),
-            Text('₹${price.toStringAsFixed(2)}'),
+            Text(
+              price,
+              style:
+                  GoogleFonts.inter(fontSize: 15, fontWeight: FontWeight.bold),
+            ),
+            const Spacer(),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                ElevatedButton(
+                  onPressed: () {},
+                  child: const Text('Add to Favourites'),
+                ),
+                ElevatedButton(
+                  onPressed: () {},
+                  child: const Text('Add to Cart'),
+                ),
+              ],
+            )
           ],
         ),
       ),

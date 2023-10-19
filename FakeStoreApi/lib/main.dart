@@ -50,7 +50,7 @@ class _NewAppState extends State<NewApp> {
       debugShowCheckedModeBanner: false,
       home: Scaffold(
         appBar: AppBar(
-          title: Text('Fake Store Products'),
+          title:const  Text('Fake Store Products'),
         ),
         body: ListView.builder(
           itemCount: products.length,
@@ -63,7 +63,7 @@ class _NewAppState extends State<NewApp> {
                     builder: (context) => DetailsScreen(
                       imgUrl: products[index]['image'],
                       title: products[index]['title'],
-                      price: products[index]['price'],
+                      price: products[index]['price'].toString(),
                       desc: products[index]['description'],
                     ),
                   ),
@@ -103,7 +103,7 @@ class _NewAppState extends State<NewApp> {
                       Row(
                         children: [
                           Container(
-                            margin: EdgeInsets.only(top: 4, bottom: 4),
+                            margin: const EdgeInsets.only(top: 4, bottom: 4),
                             width: 25, // Set a fixed width for the square
                             height: 25, // Set a fixed height for the square
                             color: Colors
@@ -111,11 +111,11 @@ class _NewAppState extends State<NewApp> {
                             child: Center(
                               child: Text(
                                 '${products[index]['rating']['rate']}',
-                                style: TextStyle(color: Colors.white),
+                                style:const  TextStyle(color: Colors.white),
                               ),
                             ),
                           ),
-                          SizedBox(
+                          const SizedBox(
                               width:
                                   10), // Add some space between the square and text
                           Text(
