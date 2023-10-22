@@ -45,7 +45,7 @@ class _NewAppState extends State<NewApp> {
 
   @override
   Widget build(BuildContext context) {
-    final counterTextStyle = GoogleFonts.racingSansOne(
+    final counterTextStyle = GoogleFonts.lato(
         textStyle: Theme.of(context).textTheme.displaySmall, fontSize: 14);
 
     return MaterialApp(
