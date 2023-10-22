@@ -6,10 +6,12 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:readmore/readmore.dart';
 
 void main() {
-  runApp(NewApp());
+  runApp(const NewApp());
 }
 
 class NewApp extends StatefulWidget {
+  const NewApp({super.key});
+
   @override
   State<NewApp> createState() => _NewAppState();
 }
@@ -50,7 +52,8 @@ class _NewAppState extends State<NewApp> {
       debugShowCheckedModeBanner: false,
       home: Scaffold(
         appBar: AppBar(
-          title:const  Text('Fake Store Products'),
+          backgroundColor: Colors.cyan[400],
+          title: const Text('Fake Store Products'),
         ),
         body: ListView.builder(
           itemCount: products.length,
@@ -111,7 +114,7 @@ class _NewAppState extends State<NewApp> {
                             child: Center(
                               child: Text(
                                 '${products[index]['rating']['rate']}',
-                                style:const  TextStyle(color: Colors.white),
+                                style: const TextStyle(color: Colors.white),
                               ),
                             ),
                           ),
