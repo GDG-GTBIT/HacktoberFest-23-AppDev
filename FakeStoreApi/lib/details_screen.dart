@@ -2,16 +2,17 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class DetailsScreen extends StatelessWidget {
-  String imgUrl;
-  String title;
-  String price;
-  String desc;
-  DetailsScreen(
-      {super.key,
-      required this.imgUrl,
-      required this.title,
-      required this.price,
-      required this.desc});
+  final String imgUrl;
+  final String title;
+  final String price;
+  final String desc;
+
+  DetailsScreen({
+    required this.imgUrl,
+    required this.title,
+    required this.price,
+    required this.desc,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -19,12 +20,9 @@ class DetailsScreen extends StatelessWidget {
       appBar: AppBar(title: Text(title)),
       body: Padding(
         padding: const EdgeInsets.all(8.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
+        child: ListView(
           children: [
-            const SizedBox(
-              height: 30,
-            ),
+            spaceBox(30),
             InteractiveViewer(
               maxScale: 3,
               child: Center(
@@ -41,45 +39,37 @@ class DetailsScreen extends StatelessWidget {
                 ),
               ),
             ),
-            const SizedBox(
-              height: 20,
-            ),
-            Text(
-              title,
-              style: GoogleFonts.kalam(fontSize: 20),
-            ),
-            const SizedBox(
-              height: 20,
-            ),
-            Text(
-              desc,
-              style: GoogleFonts.inter(fontSize: 15),
-            ),
-            const SizedBox(
-              height: 20,
-            ),
-            Text(
-              price,
-              style:
-                  GoogleFonts.inter(fontSize: 15, fontWeight: FontWeight.bold),
-            ),
-            const Spacer(),
+            spaceBox(20),
+            Text(title, style: GoogleFonts.kalam(fontSize: 20)),
+            spaceBox(20),
+            Text(desc, style: GoogleFonts.inter(fontSize: 15)),
+            spaceBox(20),
+            Text(price, style: GoogleFonts.inter(fontSize: 15, fontWeight: FontWeight.bold)),
+            spaceBox(20),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
-                ElevatedButton(
-                  onPressed: () {},
-                  child: const Text('Add to Favourites'),
-                ),
-                ElevatedButton(
-                  onPressed: () {},
-                  child: const Text('Add to Cart'),
-                ),
+                _styledButton('Add to Favourites'),
+                _styledButton('Add to Cart'),
               ],
-            )
+            ),
+            spaceBox(20),
           ],
         ),
       ),
+    );
+  }
+
+  SizedBox spaceBox(double height) => SizedBox(height: height);
+
+  Widget _styledButton(String title) {
+    return ElevatedButton(
+      onPressed: () {},
+      style: ElevatedButton.styleFrom(
+        padding: const EdgeInsets.symmetric(vertical: 12.0, horizontal: 20.0),
+        primary: Colors.blue,
+      ),
+      child: Text(title),
     );
   }
 }
